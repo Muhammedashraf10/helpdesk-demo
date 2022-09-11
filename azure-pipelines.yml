@@ -20,16 +20,11 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
-
-- task: Docker@2
-  inputs:
-    containerRegistry: 'docker_sc'
-    command: 'build'
-    Dockerfile: '**/Dockerfile'
-
 - task: Docker@2
   inputs:
     containerRegistry: 'docker_sc'
     repository: 'muashraf10/test'
-    command: 'push'
-    tags: '1.0'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+    tags: 'latest'
+
