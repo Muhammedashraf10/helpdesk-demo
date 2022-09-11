@@ -32,3 +32,4 @@ steps:
     containerRegistry: 'docker_sc'
     repository: 'muashraf10/test'
     command: 'push'
+    tags: '1.0'
