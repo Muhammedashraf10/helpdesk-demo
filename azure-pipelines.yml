@@ -30,4 +30,5 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'docker_sc'
+    repository: 'muashraf10/test'
     command: 'push'
