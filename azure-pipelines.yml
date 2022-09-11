@@ -27,6 +27,10 @@ steps:
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
     tags: 'latest'
+
+- task: CopyFiles@2
+  inputs:
+    TargetFolder: '$(Build.ArtifactStatgingDirectory'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
