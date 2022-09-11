@@ -26,3 +26,8 @@ steps:
     containerRegistry: 'docker_sc'
     command: 'build'
     Dockerfile: '**/Dockerfile'
+
+- task: Docker@2
+  inputs:
+    containerRegistry: 'docker_sc'
+    command: 'push'
