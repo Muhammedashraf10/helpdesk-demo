@@ -18,10 +18,11 @@ steps:
 - script: |
     npm install 
     npm run build
+    npm install -d karma-junit-reporter
   displayName: 'npm install and build'
 
 - script: |
-    ng test --watch=false 
+    npx ng test --watch=false --karmaConfig karma.conf.ci.js --code-coverage
   displayName: 'perform unit tests'  
 
 - task: PublishTestResults@2
