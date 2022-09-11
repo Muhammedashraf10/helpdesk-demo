@@ -20,6 +20,17 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
+- script: |
+    npx ng test --watch=false --karmaConfig karma.conf.ci.js --code-coverage
+  displayName: 'perform unit tests'  
+
+- task: PublishTestResults@2
+  condition: succeededOrFailed()
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/TESTS-*.xml'
+  displayName: 'publish unit test results'
+
 - task: Docker@2
   inputs:
     containerRegistry: 'docker_sc'
@@ -36,3 +47,4 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
+    StoreAsTar: true
