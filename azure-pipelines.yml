@@ -21,7 +21,7 @@ steps:
   displayName: 'npm install and build'
 
 - script: |
-    npx ng test --watch=false --karmaConfig karma.conf.ci.js --code-coverage
+    ng test --watch=false 
   displayName: 'perform unit tests'  
 
 - task: PublishTestResults@2
