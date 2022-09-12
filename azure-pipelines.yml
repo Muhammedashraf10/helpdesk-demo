@@ -25,6 +25,7 @@ steps:
   inputs:
     command: 'custom'
     customCommand: 'run test -- --watch=false --code-coverage --karmaConfig src/karma.conf.ci.js'
+    workingDir: 'helpdesk-demo'
 
 - task: Docker@2
   inputs:
