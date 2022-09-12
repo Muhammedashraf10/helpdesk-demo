@@ -20,13 +20,9 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
-- task: Npm@1
-  displayName: 'Test Angular'
-  inputs:
-    command: 'custom'
-    customCommand: 'run test -- --watch=false --code-coverage --karmaConfig src/karma.conf.ci.js'
-    workingDir: 'helpdesk-demo'
-
+- script: |
+    npx ng test --watch=false --karmaConfig karma.conf.ci.js --code-coverage
+  displayName: 'perform unit tests'    
 - task: Docker@2
   inputs:
     containerRegistry: 'docker_sc'
